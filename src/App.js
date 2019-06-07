@@ -1,15 +1,18 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Aplication from "./components/Aplication";
+import ApplicationList from "./components/ApplicationList";
 
-function App() {
-  return (
-    <div>
-      <p>This is aplication manager</p>
-      <Aplication />
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div>
+        {/*<ApplicationList />*/}
+        <Aplication />
+      </div>
+    );
+  }
 }
 
 export default App;
