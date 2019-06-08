@@ -31,13 +31,25 @@ export default class AplicationForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.addApplication(this.state);
+    this.setState({
+      name: "",
+      email: "",
+      age: "",
+      phoneNumber: "",
+      communication: "",
+      englishLevel: "",
+      dateToStart: "",
+      skills: "",
+      presentation: "",
+      homeStudy: ""
+    });
   };
 
   render() {
     return (
       <FormWrapper className="col-8 mx-auto my-3">
         {this.props.displayForm ? (
-          <div className="container card">
+          <div style={{ marginTop: "100px" }} className="container card">
             <form onSubmit={this.handleSubmit}>
               {/* student name */}
               <div className="row">
