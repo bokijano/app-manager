@@ -1,42 +1,43 @@
 import React, { Component } from "react";
 import AplicationForm from "./AplicationForm";
-import ApplicationList from "./ApplicationList";
+import List from "./Application List/List";
 
 export default class Aplication extends Component {
   state = {
     emptyApplication: [],
-    application: [
-      {
-        id: 1,
-        name: "Bojan",
-        email: "@gmail",
-        age: 35,
-        phoneNumber: 64,
-        communication: "Email",
-        englishLevel: "A1",
-        dateToStart: 20,
-        skills: "HTML",
-        presentation: "better salary",
-        homeStudy: true
-      }
-    ]
+    displayForm: true
   };
   addApplication = app => {
     app.id = Math.random();
     let emptyApplication = [...this.state.emptyApplication, app];
     this.setState({
-      emptyApplication: emptyApplication
+      emptyApplication: emptyApplication,
+      displayForm: false
+    });
+  };
+
+  handleDisplay = () => {
+    this.setState({
+      displayForm: true
     });
   };
 
   render() {
     return (
       <div>
-        <ApplicationList />
-        {/*<AplicationForm
+        {this.state.displayForm ? null : (
+          <List
+            emptyApplication={this.state.emptyApplication}
+            displayForm={this.state.displayForm}
+            handleDisplay={this.handleDisplay}
+          />
+        )}
+
+        <AplicationForm
           emptyApplication={this.state.emptyApplication}
           addApplication={this.addApplication}
-        />*/}
+          displayForm={this.state.displayForm}
+        />
       </div>
     );
   }
