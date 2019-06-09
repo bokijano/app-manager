@@ -7,10 +7,10 @@ const Applications = [
     phoneNumber: "0091/322-522",
     communication: "Email",
     englishLevel: "A1",
-    dateToStart: "12/05/2019",
+    dateToStart: "2019-07-01",
     skills: "HTML",
     presentation: "like to study",
-    homeStudy: "Yes"
+    homeStudy: true
   },
   {
     id: 2,
@@ -20,10 +20,10 @@ const Applications = [
     phoneNumber: "064/321-543",
     communication: "Phone",
     englishLevel: "B2",
-    dateToStart: "13/05/2019",
+    dateToStart: "2019-07-05",
     skills: "React",
     presentation: "training in new skills",
-    homeStudy: "Yes"
+    homeStudy: true
   }
 ];
 

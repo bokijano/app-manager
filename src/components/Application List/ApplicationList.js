@@ -31,12 +31,17 @@ export default class ApplicationList extends Component {
                   </div>
                   <div className="col-10 mx-auto col-md-2">
                     <p className="list-paragraph">
-                      <ButtonWrapper list>more info</ButtonWrapper>
+                      <ButtonWrapper
+                        onClick={() => this.props.openInfo(item.id)}
+                        list
+                      >
+                        more info
+                      </ButtonWrapper>
                     </p>
                   </div>
                   <div className="col-10 mx-auto col-md-2">
                     <p className="list-paragraph">
-                      <ButtonWrapper list>update</ButtonWrapper>
+                      <ButtonWrapper onClick={() => this.props.updateApp(item.id)} list>update</ButtonWrapper>
                     </p>
                   </div>
                   <div className="col-10 mx-auto col-md-2">

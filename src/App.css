@@ -14,4 +14,25 @@
   margin-top: 30px;
   margin-bottom: 20px;
 }
+.info-text {
+  font-family: "Acme", sans-serif;
+}
+.update-form {
+  margin-top: 100px;
+}
 
+@media screen and (max-width: 768px) {
+  #info {
+    margin-top: 100px;
+  }
+  .form-update {
+    margin-top: -20px;
+  }
+  .small-device-label {
+    max-width: 40%;
+    font-size: 3vw;
+  }
+  .small-device-input {
+    max-width: 60%;
+  }
+}

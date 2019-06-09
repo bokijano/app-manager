@@ -8,8 +8,8 @@ export default class Navbar extends Component {
         <ButtonWrapper
           onClick={this.props.handleDisplay}
           style={{
-            width: "30%",
-            marginLeft: "65%",
+            width: "40%",
+            marginLeft: "55%",
             marginRight: "5px",
             color: "blue",
             borderColor: "blue"

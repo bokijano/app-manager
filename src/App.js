@@ -7,14 +7,20 @@ import ButtonWrapper from "./components/Button";
 import Navbar from "./Navbar";
 import applications from "./studentsData";
 import MoreInfo from "./components/More Info/MoreInfo";
+import Update from "./components/Update/Update";
 
 class App extends Component {
   state = {
     applyDisplay: true,
     displayUsername: false,
     applications: applications,
-    displayForm: true
+    displayForm: true,
+    infoOpen: false,
+    infoApp: [],
+    updateOpen: false,
+    updateApp: []
   };
+
   addApplication = app => {
     app.id = Math.random();
     let applications = [...this.state.applications, app];
@@ -44,6 +50,36 @@ class App extends Component {
       applications: removeItem
     });
   };
+  openInfo = id => {
+    const application = this.state.applications.find(app => app.id === id);
+    this.setState({
+      infoApp: application,
+      infoOpen: true
+    });
+  };
+  closeInfo = () => {
+    this.setState({
+      infoOpen: false
+    });
+  };
+  updateApp = id => {
+    const application = this.state.applications.find(app => app.id === id);
+    this.setState({
+      updateApp: application,
+      updateOpen: true
+    });
+  };
+  closeUpdate = (id, newApp) => {
+    const application = this.state.applications.filter(app => app.id !== id);
+    console.log(application);
+    newApp.id = Math.random();
+    let applications = [...application, newApp];
+    console.log(applications);
+    this.setState({
+      updateOpen: false,
+      applications: applications
+    });
+  };
 
   render() {
     return (
@@ -61,6 +97,7 @@ class App extends Component {
             emptyApplication={this.state.emptyApplication}
             addApplication={this.addApplication}
             displayForm={this.state.displayForm}
+            handleChange={this.handleChange}
           />
         )}
         <div style={{ marginTop: "100px" }}>
@@ -70,10 +107,21 @@ class App extends Component {
               displayForm={this.state.displayForm}
               handleDisplay={this.handleDisplay}
               handleDelete={this.handleDelete}
+              openInfo={this.openInfo}
+              updateApp={this.updateApp}
             />
           )}
         </div>
-        <MoreInfo />
+        {this.state.infoOpen ? (
+          <MoreInfo infoApp={this.state.infoApp} closeInfo={this.closeInfo} />
+        ) : null}
+        {this.state.updateOpen ? (
+          <Update
+            updateApp={this.state.updateApp}
+            handleChange={this.handleChange}
+            closeUpdate={this.closeUpdate}
+          />
+        ) : null}
       </React.Fragment>
     );
   }

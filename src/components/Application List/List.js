@@ -12,6 +12,8 @@ export default class List extends Component {
         <ApplicationList
           applications={this.props.applications}
           handleDelete={this.props.handleDelete}
+          openInfo={this.props.openInfo}
+          updateApp={this.props.updateApp}
         />
         <ButtonWrapper onClick={this.props.handleDisplay}>
           application form
