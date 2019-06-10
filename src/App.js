@@ -20,7 +20,7 @@ class App extends Component {
     updateOpen: false,
     updateApp: []
   };
-
+  // add application to the list
   addApplication = app => {
     app.id = Math.random();
     let applications = [...this.state.applications, app];
@@ -30,6 +30,7 @@ class App extends Component {
     });
   };
 
+  // display form
   handleDisplay = () => {
     this.setState({
       displayForm: !this.state.displayForm,
@@ -42,6 +43,8 @@ class App extends Component {
       displayForm: true
     });
   };
+
+  // delete application from the list
   handleDelete = id => {
     let removeItem = this.state.applications.filter(item => {
       return item.id !== id;
@@ -50,6 +53,8 @@ class App extends Component {
       applications: removeItem
     });
   };
+
+  // open/close info about application
   openInfo = id => {
     const application = this.state.applications.find(app => app.id === id);
     this.setState({
@@ -62,6 +67,8 @@ class App extends Component {
       infoOpen: false
     });
   };
+
+  // update application / change data
   updateApp = id => {
     const application = this.state.applications.find(app => app.id === id);
     this.setState({
